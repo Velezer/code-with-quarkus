@@ -2,6 +2,7 @@ package org.velezer.service;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
@@ -22,5 +23,10 @@ public class NotifService {
     public Multi<Notif> consume() {
         // get from kafka
         return notifs.log();
+    }
+
+    @Transactional
+    public void save(Notif notif) {
+        notif.persist();
     }
 }

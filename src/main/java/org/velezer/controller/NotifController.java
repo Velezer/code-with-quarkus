@@ -26,6 +26,7 @@ public class NotifController {
     @POST
     public Notif push(@Valid Notif param){
         service.push(param);
+        service.save(param);
         return param;
     }
     

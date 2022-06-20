@@ -1,20 +1,24 @@
 package org.velezer.model;
 
-import java.time.LocalDateTime;
+import java.util.Calendar;
 
-import javax.validation.constraints.NotBlank;
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import io.smallrye.common.constraint.NotNull;
 
-// @Entity
+@Entity
 public class Notif extends PanacheEntity {
 
-    public String from;
+    @NotNull
+    public String header;
     
     @NotNull
-    @NotBlank(message = "body cannot blank")
     public String body;
-    public String to;
-    public LocalDateTime dateTime;
+
+    @NotNull
+    public String footer;
+    
+    @NotNull
+    public Calendar dateTime;
 }

@@ -39,3 +39,4 @@ nb-configuration.xml
 .env
 .mvn/wrapper/maven-wrapper.jar
 req.rest
+query.pgsql
